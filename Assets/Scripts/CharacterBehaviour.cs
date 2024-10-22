@@ -18,11 +18,15 @@ public class CharacterBehaviour : MonoBehaviour
     {
       if (Input.GetKey(KeyCode.RightArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+            transform.position += Vector3.right * speed * Time.deltaTime;
+            GetComponent<Animator>().SetTrigger("Walk");
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
+            transform.position += Vector3.left * speed * Time.deltaTime;
+            GetComponent<Animator>().SetTrigger("Walk");
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(KeyCode.UpArrow) && onGround)
         {
