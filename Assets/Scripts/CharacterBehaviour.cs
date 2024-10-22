@@ -18,7 +18,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
       if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector3;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
         }
         if (Input.GetKey(KeyCode.Q))
         {
