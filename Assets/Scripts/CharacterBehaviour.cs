@@ -16,15 +16,15 @@ public class CharacterBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKey(KeyCode.D))
+      if (Input.GetKey(KeyCode.RightArrow))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
         }
-        if (Input.GetKey(KeyCode.W) && onGround)
+        if (Input.GetKey(KeyCode.UpArrow) && onGround)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpForce);
             onGround = false;
