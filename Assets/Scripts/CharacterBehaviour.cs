@@ -16,21 +16,26 @@ public class CharacterBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Input.GetKeyDown(KeyCode.RightArrow) && !Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+            GetComponent<Animator>().SetBool("Walk", false);
+        }
       if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
-            GetComponent<Animator>().SetTrigger("Walk");
+            GetComponent<Animator>().SetBool("Walk", true);
             GetComponent<SpriteRenderer>().flipX = false;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
-            GetComponent<Animator>().SetTrigger("Walk");
+            GetComponent<Animator>().SetBool("Walk",true);
             GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(KeyCode.UpArrow) && onGround)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpForce);
+            GetComponent<Animator>().SetTrigger("Jump");
             onGround = false;
         }
     }
